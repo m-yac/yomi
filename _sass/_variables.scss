@@ -14,10 +14,13 @@ $gray: #666;
 $lightGray: #eee;
 $white: #fff;
 
+@font-face {
+  font-family: cmu;
+  src: url(https://www.yacavone.net/cmunss.ttf);
+}
+
 // Font stacks
-$helvetica: Helvetica, Arial, sans-serif;
-$helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$georgia: Georgia, serif;
+$cmu: cmu, sans-serif;
 
 // Mobile breakpoints
 @mixin mobile {
