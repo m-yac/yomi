@@ -15,12 +15,20 @@ $lightGray: #eee;
 $white: #fff;
 
 @font-face {
-  font-family: cmu;
-  src: url(https://www.yacavone.net/cmunss.ttf);
+  font-family: CMUSansSerif;
+  src: url('{{ site.url }}/../assets/fonts/computer-modern/cmunss.ttf');
+}
+
+@font-face {
+  font-family: 'Shofar D';
+  src: url('{{ site.url }}/../assets/fonts/Shofar D/Shofar_D.woff2') format('woff2'),
+       url('{{ site.url }}/../assets/fonts/Shofar D/Shofar_D.woff') format('woff');
 }
 
 // Font stacks
-$cmu: cmu, sans-serif;
+$enSanSerif: CMUSansSerif, sans-serif;
+$enSerif: Georgia, serif;
+$heSerif: 'Shofar D', serif;
 
 // Mobile breakpoints
 @mixin mobile {

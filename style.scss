@@ -19,7 +19,7 @@ html {
 
 body {
 	background: $white;
-  font: 18px/1.4 $cmu;
+  font: 18px/1.4 $enSanSerif;
   color: $darkGray;
 }
 
@@ -30,10 +30,45 @@ body {
   width: 100%;
 }
 
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.he {
+  font-family: $heSerif;
+  font-size: 125%;
+  line-height: 0;
+  font-weight: normal;
+}
+
+.tl {
+  font-family: $enSerif;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.tr {
+  font-family: $enSerif;
+  font-weight: normal;
+}
+
+.verses-attrib {
+  display: block;
+  text-align: center;
+  margin-top: 5px;
+  font-style: italic;
+}
+
 h1, h2, h3, h4, h5, h6 {
-  font-family: $cmu;
+  font-family: $enSanSerif;
   color: $darkerGray;
-  font-weight: lighter;
+  font-weight: bold;
 
   line-height: 1.7;
   margin: 1em 0 15px;
@@ -194,7 +229,7 @@ img {
   margin: 0;
   color: $darkGray;
   cursor: pointer;
-  font-family: $cmu;
+  font-family: $enSanSerif;
   font-weight: lighter;
   font-size: 28px;
 }
@@ -212,7 +247,7 @@ img {
 nav {
   float: right;
   margin-top: 23px; // @TODO: Vertically middle align
-  font-family: $cmu;
+  font-family: $enSanSerif;
   font-size: 18px;
 
   @include mobile {

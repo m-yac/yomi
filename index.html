@@ -6,7 +6,7 @@ layout: default
   {% for post in site.posts %}
     <article class="post">
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.book }} {{ post.chapter }}{% if post.verse %}:{{ post.verse }}{% endif %} - {% if post.heTitle %}<span class="he">{{ post.heTitle }}</span>{% endif %} {% if post.tlTitle %}<span class="tl">{{ post.tlTitle }}</span>{% endif %} {% if post.enTitle %}{{ post.enTitle }}{% endif %}</a></h1>
 
       <div class="entry">
         {{ post.excerpt }}
