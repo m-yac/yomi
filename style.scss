@@ -65,6 +65,25 @@ td {
   font-style: italic;
 }
 
+.statement {
+  padding: 0 10px;
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.statement-index {
+  margin-top: 15px - 50px;
+  margin-bottom: 50px;
+  font-size: 85%;
+}
+
+.statement-post {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 80%;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: $enSanSerif;
   color: $darkerGray;

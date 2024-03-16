@@ -9,6 +9,12 @@ layout: default
     {{ content }}
   </div>
 
+  {% if page.includeStatement == 1 %}
+  <div class="container statement statement-post">
+    {% include israel-palestine.html %}
+  </div>
+  {% endif %}
+
   <div class="date">
     Written on {{ page.date | date: "%B %e, %Y" }}
   </div>
