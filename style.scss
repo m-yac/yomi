@@ -9,6 +9,9 @@
 @import "variables";
 // Syntax highlighting @import is at the bottom of this file
 
+// Noto Naskh Arabic font
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400..700&display=swap');
+
 /**************/
 /* BASE RULES */
 /**************/
@@ -42,24 +45,21 @@ td {
 
 .he {
   font-family: $heSerif;
-  font-size: 125%;
-  line-height: 0;
+  font-size: 120%;
+  line-height: 1.1666666667;
   font-weight: normal;
 }
 
 .tl {
   font-family: $enSerif;
+  font-size: 92%;
+  line-height: 1.5217391304;
   font-style: italic;
   font-weight: normal;
 }
 
 .tr {
-  font-family: $enSerif;
-  font-weight: normal;
-}
-
-.tltr {
-  font-family: $enSerif;
+  font-family: $enSanSerif;
   font-weight: normal;
 }
 
@@ -68,6 +68,10 @@ td {
   text-align: center;
   margin-top: 5px;
   font-style: italic;
+}
+
+.verses-no-wrap {
+  white-space: nowrap;
 }
 
 .statement {
@@ -318,13 +322,27 @@ nav {
     font-style: italic;
   }
 
+  img {
+    width: 75%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .comments {
     margin-top: 10px;
   }
 
+  .post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
   .read-more {
-    text-transform: uppercase;
-    font-size: 15px;
+    font-style: italic;
+    // text-transform: uppercase;
+    // font-size: 15px;
   }
 }
 

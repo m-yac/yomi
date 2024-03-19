@@ -10,13 +10,20 @@ layout: default
   {% for post in site.posts %}
     <article class="post">
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.book }} {{ post.chapter }}{% if post.verse %}:{{ post.verse }}{% endif %} - {% if post.heTitle %}<span class="he">{{ post.heTitle }}</span>{% endif %} {% if post.tlTitle %}<span class="tl">{{ post.tlTitle }}</span>{% endif %} {% if post.enTitle %}{{ post.enTitle }}{% endif %}</a></h1>
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.book | postTitle: post.chapter, post.verse, post.heTitle, post.tlTitle, post.enTitle }}</a></h1>
 
       <div class="entry">
         {{ post.excerpt }}
       </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+      <div class="post-footer">
+        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">
+          {% if post.content contains site.excerpt_separator %}
+            Read More
+          {% endif %}
+        </a>
+        <span class="date"> {{ post.date | date: "%B %e, %Y" }}</span>
+      </div>
     </article>
   {% endfor %}
 </div>
