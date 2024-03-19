@@ -20,7 +20,11 @@ baseurl: "/yomi"
 
 excerpt_separator: <!--more-->
 
-exclude: [vendor]
+exclude:
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
 
 #
 # !! You don't need to change any of the configuration flags below !!
