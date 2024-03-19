@@ -50,13 +50,6 @@ plugins:
 
 # Exclude these files from your production _site
 exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node-modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
   - LICENSE
   - README.md
   - CNAME
