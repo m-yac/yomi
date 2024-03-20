@@ -69,11 +69,17 @@ module Jekyll
     end
 
     def render(context)
-      match = @text.scan(/^([0-9A-Za-z ]+) ([0-9]+):([0-9]+).*/)
-      "</tr></tbody></table>
-      <div class=\"verses-attrib\"> <a href=\"https://www.sefaria.org/#{match[0][0]}.#{match[0][1]}.#{match[0][2]}\">#{@text}</a></div>
-      </div>
-      "
+      book = @text.scan(/^([A-Za-z ]+)/)[0][0]
+      str = "</tr></tbody></table><div class=\"verses-attrib\">"
+      @text.scan(/(,? )?([0-9]+):([0-9]+)/).each_with_index { |m, i|
+        str += "<a href=\"https://www.sefaria.org/#{book}.#{m[1]}.#{m[2]}\">"
+        if i == 0
+          str += "#{book}"
+        end
+        str += "#{m[0]}#{m[1]}:#{m[2]}</a>"
+      }
+      str += "</div></div>"
+      return str
     end
   end
 end
