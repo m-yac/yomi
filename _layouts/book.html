@@ -5,7 +5,8 @@ layout: default
 <h1 class="page-title">All Posts from {{ page.title }}</h1>
 
 <div class="posts">
-  {% assign posts = site.categories[page.title] | sort: "date" %}
+  {% assign cat = page.title | replace: " ", "-" %}
+  {% assign posts = site.categories[cat] | sort: "date" %}
   {% for post in posts %}
     {% include post-excerpt.html post=post %}
   {% endfor %}
