@@ -1,0 +1,13 @@
+---
+layout: default
+title: My Favorite Posts
+---
+
+<article class="page">
+
+  <h1 class="page-title">My Favorite Posts (So Far!)</h1>
+  {% for post in site.tags["fav"] %}
+    {% include post-excerpt.html post=post %}
+  {% endfor %}
+
+</article>

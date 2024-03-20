@@ -9,13 +9,16 @@ layout: default
     {{ content }}
   </div>
 
-  {% if page.includeStatement == 1 %}
+  <!-- {% if page.includeStatement == 1 %}
   <div class="container statement statement-post">
     {% include israel-palestine.html %}
   </div>
-  {% endif %}
+  {% endif %} -->
 
-  <div class="date">
-    {{ page.date | date: "%B %e, %Y" }}
+  <div class="post-footer">
+    <a href="{{ site.baseurl }}/{{ page.categories | join: '/' }}" class="read-more">
+      Read More Posts from {{ page.book }}
+    </a>
+    <span class="date"> {{ page.date | date: "%B %e, %Y" }}</span>
   </div>
 </article>

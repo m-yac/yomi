@@ -50,12 +50,24 @@ for book, chapters in nach_books.items():
   else:
     date += timedelta(days = chapters)
 
-post_parent_dir = Path('nach-2024', args.book, '_posts')
+post_book_dir = Path('nach-2024', args.book)
+post_parent_dir = post_book_dir / '_posts'
 post_file = post_parent_dir / f'{date.strftime('%Y-%m-%d')}-{args.chapter}.md'
+
 if post_file.exists():
   answer = input(f'WARNING: {post_file} already exists - overwrite it? [y/N] ')
   if answer.lower() not in ["y","yes"]:
     exit()
+
+if not post_book_dir.exists():
+  post_book_dir.mkdir(parents=True, exists_ok=True)
+  with (post_book_dir / 'index.html').open('w') as f:
+    lines = []
+    lines.append(f'---')
+    lines.append(f'layout: book')
+    lines.append(f'title: {args.book}')
+    lines.append(f'---')
+    f.write('\n'.join(lines))
 
 post_parent_dir.mkdir(parents=True, exist_ok=True)
 with post_file.open('w') as f:

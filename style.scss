@@ -93,6 +93,37 @@ td {
   font-size: 80%;
 }
 
+.page-title {
+  text-align: center;
+  margin-top: -0.3em;
+}
+
+.secondary-page-title {
+  text-align: center;
+}
+
+.all-posts-book-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 40pt;
+  margin-bottom: 20pt;
+}
+
+a.gray,
+a.gray:visited {
+  color: #555;
+}
+a.gray:hover,
+a.gray:focus,
+a.gray:visited:hover,
+a.gray:visited:focus {
+  color: #555;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: $enSanSerif;
   color: $darkerGray;
@@ -183,15 +214,15 @@ img {
   color: $gray;
 }
 
-// Specify the color of the selection
-::-moz-selection {
-  color: $black;
-  background: $lightGray;
-}
-::selection {
-  color: $black;
-  background: $lightGray;
-}
+// // Specify the color of the selection
+// ::-moz-selection {
+//   color: $black;
+//   background: $lightGray;
+// }
+// ::selection {
+//   color: $black;
+//   background: $lightGray;
+// }
 
 // Nicolas Gallagher's micro clearfix hack
 // http://nicolasgallagher.com/micro-clearfix-hack/
@@ -215,6 +246,10 @@ img {
 
 .wrapper-masthead {
   margin-bottom: 50px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: inherit;
 }
 
 .masthead {
@@ -260,6 +295,12 @@ img {
   font-family: $enSanSerif;
   font-weight: lighter;
   font-size: 28px;
+}
+
+.latest-posts {
+  font-weight: lighter;
+  font-size: 28px;
+  text-align: center;
 }
 
 .site-description {

@@ -1,0 +1,17 @@
+<article class="post">
+
+  <h1><a href="{{ site.baseurl }}{{ include.post.url }}">{{ include.post.book | postTitle: include.post.chapter, include.post.verse, include.post.heTitle, include.post.tlTitle, include.post.enTitle }}</a></h1>
+
+  <div class="entry">
+    {{ include.post.excerpt }}
+  </div>
+
+  <div class="post-footer">
+    <a href="{{ site.baseurl }}{{ include.post.url }}" class="read-more">
+      {% if include.post.content contains site.excerpt_separator %}
+        Read More
+      {% endif %}
+    </a>
+    <span class="date"> {{ include.post.date | date: "%B %e, %Y" }}</span>
+  </div>
+</article>

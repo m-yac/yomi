@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<article class="page">
+
+  <h1 class="page-title">Posts by Book</h1>
+
+  <table><tbody><tr><td>
+  {% assign posts = site.categories[page.cat] | sort: "date" %}
+  {% for post in posts %}
+    {% if post.chapter == 1 %}
+      </td></tr><tr><td class="all-posts-book-title">
+        <a href="{{ site.baseurl }}/nach-2024/{{ post.book }}">{{ post.book }}</a>
+      </td><td>
+    {% endif %}
+    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.chapter }}</a>
+  {% endfor %}
+  </tbody></table>
+
+  <h1 class="secondary-page-title">Posts by Date</h1>
+
+  <table><tbody><tr><td>
+    {% assign posts = site.categories[page.cat] | sort: "date" %}
+    {% for post in posts %}
+      {% assign year = post.date | date: "%Y" %}
+      {% assign month = post.date | date: "%b" %}
+      
+      {% assign day = post.date | date: "%e" %}
+      {% if day == " 1" %}
+        </td></tr><tr>
+        {% if month == "Jan" or month == "Feb" and year == "2024" %}
+          <td class="all-posts-book-title">
+            {{ year }}
+          </td>
+        {% else %}
+          <td></td>
+        {% endif %}
+        <td class="all-posts-book-title">
+          {{ month }}
+        </td><td>
+      {% endif %}
+      <a href="{{ site.baseurl }}{{ post.url }}">{{ day }}</a>
+    {% endfor %}
+    </tbody></table>
+
+</article>
