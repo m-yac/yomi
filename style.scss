@@ -419,7 +419,11 @@ footer {
   text-align: center;
 }
 
-// Settled on moving the import of syntax highlighting to the bottom of the CSS
-// ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
-@import "highlights";
-@import "svg-icons";
+.svg-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background-size: cover;
+  vertical-align: text-top;
+  &.rss { background-image: url(assets/icons/RSS.svg) }
+}
