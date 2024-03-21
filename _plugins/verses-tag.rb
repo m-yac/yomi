@@ -62,22 +62,36 @@ module Jekyll
     end
   end
   
+  module SefariaFilter
+    def sefaria(input)
+      book = input.scan(/^(I* ?[A-Za-z]+)/)[0][0]
+      chapter = 1
+      str = ""
+      input.scan(/([;,] |-)?((?:([1-9][0-9a-z]*):)?([1-9][0-9a-z]*))/).each_with_index { |m, i|
+        if m[2]
+          chapter = m[2]
+        end
+        str += "#{m[0]}<a href=\"https://www.sefaria.org/#{book}.#{chapter}.#{m[3]}\" class=\"sefaria-link\">"
+        if i == 0
+          str += "#{book} "
+        end
+        str += "#{m[1]}</a>"
+      }
+      return str
+    end
+  end
+
   class EndVersesTag < Liquid::Tag
+    include SefariaFilter
+
     def initialize(tag_name, text, tokens)
       super
       @text = text
     end
 
     def render(context)
-      book = @text.scan(/^([A-Za-z ]+)/)[0][0]
       str = "</tr></tbody></table><div class=\"verses-attrib\">"
-      @text.scan(/(,? )?([0-9]+):([0-9]+)/).each_with_index { |m, i|
-        str += "<a href=\"https://www.sefaria.org/#{book}.#{m[1]}.#{m[2]}\">"
-        if i == 0
-          str += "#{book}"
-        end
-        str += "#{m[0]}#{m[1]}:#{m[2]}</a>"
-      }
+      str += sefaria(@text)
       str += "</div></div>"
       return str
     end
@@ -92,3 +106,4 @@ Liquid::Template.register_tag('vtr', Jekyll::TrVerseTag)
 Liquid::Template.register_tag('brverses', Jekyll::BrVersesTag)
 Liquid::Template.register_tag('brdotsverses', Jekyll::BrDotsVersesTag)
 Liquid::Template.register_tag('endverses', Jekyll::EndVersesTag)
+Liquid::Template.register_filter(Jekyll::SefariaFilter)

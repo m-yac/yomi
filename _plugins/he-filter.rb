@@ -18,14 +18,6 @@ module Jekyll
       return str
     end
   end
-
-  module SefariaFilter
-    def sefaria(input)
-      match = input.scan(/^([0-9A-Za-z ]+) ([0-9]+):([0-9]+).*/)
-      "<a href=\"https://www.sefaria.org/#{match[0][0]}.#{match[0][1]}.#{match[0][2]}\">#{input}</a>"
-    end
-  end
 end
 
 Liquid::Template.register_filter(Jekyll::HeFilter)
-Liquid::Template.register_filter(Jekyll::SefariaFilter)

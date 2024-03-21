@@ -74,6 +74,20 @@ td {
   white-space: nowrap;
 }
 
+.sefaria-link {
+  white-space: nowrap;
+}
+
+.small-caps {
+  display: inline-block;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+
+span.small-caps:first-letter {
+  font-weight: normal;
+}
+
 .statement {
   padding: 0 10px;
   text-align: center;
