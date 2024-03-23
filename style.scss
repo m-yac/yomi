@@ -445,4 +445,5 @@ footer {
   background-size: cover;
   vertical-align: text-top;
   &.rss { background-image: url(assets/icons/RSS.svg) }
+  &.rss:hover { background-image: url(assets/icons/RSS-hover.svg) }
 }
