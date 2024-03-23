@@ -64,14 +64,18 @@ module Jekyll
   
   module SefariaFilter
     def sefaria(input)
-      book = input.scan(/^(I* ?[A-Za-z]+)/)[0][0]
-      chapter = 1
+      book = input.scan(/^([A-Za-z]+(:? +[A-Za-z]+)*)/)[0][0]
+      chapter = nil
       str = ""
       input.scan(/([;,] |-)?((?:([1-9][0-9a-z]*):)?([1-9][0-9a-z]*))/).each_with_index { |m, i|
         if m[2]
           chapter = m[2]
         end
-        str += "#{m[0]}<a href=\"https://www.sefaria.org/#{book}.#{chapter}.#{m[3]}\" class=\"sefaria-link\">"
+        str += "#{m[0]}<a href=\"https://www.sefaria.org/#{book}."
+        if chapter
+          str += "#{chapter}."
+        end
+        str += "#{m[3]}\" class=\"sefaria-link\">"
         if i == 0
           str += "#{book} "
         end
