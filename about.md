@@ -5,7 +5,9 @@ title: About
 
 This is a daily blog of my notes as I study Nach Yomi from both a Jewish and an academic perspective. I'm using Robert Alter's [Hebrew Bible](https://wwnorton.com/books/9780393292497) as my English translation and initial source of commentary on the academic perspective, and the [Koren Tanakh](https://korenpub.com/collections/english-tanakh) as my Hebrew text.
 
-What is Nach Yomi? Well, in Judaism, the Hebrew Bible (or Old Testament) is divided into three parts:
+## What is Nach Yomi?
+
+In Judaism, the Hebrew Bible (or Old Testament) is divided into three parts:
 - The {{ 'תורה' | he: 'Torah', 'Teaching' }}, consisting of the first five books, read by Jews in weekly portions throughout every year: Genesis, Exodus, Leviticus, Numbers, and Deuteronomy.
 - The {{ 'נביאים' | he: 'Nevi’im', 'Prophets' }}, consisting of the books which record the actions of prophets: Joshua, Judges, Samuel, Kings, Isaiah, Jeremiah, Ezekiel, and the Twelve Minor Prophets (Hosea, Joel, Amos, Obadiah, Jonah, Micah, Nahum, Habakkuk, Zephaniah, Haggai, Zechariah and Malachi – grouped together as one book in Judaism).
 - The {{ 'כתובים' | he: 'Ketuvim', 'Writings' }}, consisting of three sub-parts:
