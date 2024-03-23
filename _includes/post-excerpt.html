@@ -3,7 +3,8 @@
   <h1><a href="{{ site.baseurl }}{{ include.post.url }}">{{ include.post.book | postTitle: include.post.chapter, include.post.verse, include.post.heTitle, include.post.tlTitle, include.post.enTitle }}</a></h1>
 
   <div class="entry">
-    {{ include.post.excerpt }}
+    {% assign url = site.baseurl | append: include.post.url %}
+    {{ include.post.excerpt | strip_footnotes: url }}
   </div>
 
   <div class="post-footer">
