@@ -28,6 +28,17 @@ module Jekyll
     end
   end
 
+  class GkVerseTag < Liquid::Tag
+    def initialize(tag_name, text, tokens)
+      super
+      @text = text
+    end
+
+    def render(context)
+      "<td class=\"gk\">#{@text}</td>"
+    end
+  end
+
   class TlVerseTag < Liquid::Tag
     def initialize(tag_name, text, tokens)
       super
@@ -100,14 +111,32 @@ module Jekyll
       return str
     end
   end
+
+  class EndVersesNoLinkTag < Liquid::Tag
+    include SefariaFilter
+
+    def initialize(tag_name, text, tokens)
+      super
+      @text = text
+    end
+
+    def render(context)
+      str = "</tr></tbody></table><div class=\"verses-attrib\">"
+      str += @text
+      str += "</div></div>"
+      return str
+    end
+  end
 end
 
 Liquid::Template.register_tag('verses', Jekyll::VersesTag)
 Liquid::Template.register_tag('nowrapverses', Jekyll::NoWrapVersesTag)
 Liquid::Template.register_tag('vhe', Jekyll::HeVerseTag)
+Liquid::Template.register_tag('vgk', Jekyll::GkVerseTag)
 Liquid::Template.register_tag('vtl', Jekyll::TlVerseTag)
 Liquid::Template.register_tag('vtr', Jekyll::TrVerseTag)
 Liquid::Template.register_tag('brverses', Jekyll::BrVersesTag)
 Liquid::Template.register_tag('brdotsverses', Jekyll::BrDotsVersesTag)
 Liquid::Template.register_tag('endverses', Jekyll::EndVersesTag)
+Liquid::Template.register_tag('endversesnolink', Jekyll::EndVersesNoLinkTag)
 Liquid::Template.register_filter(Jekyll::SefariaFilter)

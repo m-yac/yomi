@@ -25,6 +25,18 @@ $white: #fff;
        url('{{ site.url }}/../assets/fonts/Shofar D/Shofar_D.woff') format('woff');
 }
 
+@font-face {
+  font-family: '4Q416';
+  src: url('{{ site.url }}/../assets/fonts/4Q416/4Q416.woff2') format('woff2'),
+       url('{{ site.url }}/../assets/fonts/4Q416/4Q416.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'KeterYG';
+  src: url('{{ site.url }}/../assets/fonts/KeterAramTsova/KeterYG.woff2') format('woff2'),
+       url('{{ site.url }}/../assets/fonts/KeterAramTsova/KeterYG.woff') format('woff');
+}
+
 // Font stacks
 $enSanSerif: CMUSansSerif, sans-serif;
 $enSerif: Georgia, serif;
