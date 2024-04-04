@@ -11,8 +11,8 @@ layout: default
   {% for post in posts %}
     {% if post.chapter == 1 %}
       </td></tr><tr><td class="htd book-htd">
-        <a href="{{ site.baseurl }}/nach-2024/{{ post.book }}">{{ post.book }}</a>
-      </td><td>
+        <a href="{{ site.baseurl }}/nach-2024/{{ post.book | replace: ' ', '-' }}">{{ post.book }}</a>
+      </td><td class="post-list">
     {% endif %}
     <a href="{{ site.baseurl }}{{ post.url }}">{{ post.chapter }}</a>
   {% endfor %}
@@ -20,7 +20,7 @@ layout: default
 
   <h1 class="secondary-page-title">Posts by Date</h1>
 
-  <table style="margin-left: -10px; margin-right: -10px"><tbody><tr><td>
+  <table><tbody><tr><td>
     {% assign posts = site.categories[page.cat] | sort: "date" %}
     {% for post in posts %}
       {% assign year = post.date | date: "%y" %}
@@ -38,7 +38,7 @@ layout: default
         {% endif %}
         <td class="htd">
           {{ month }}
-        </td><td>
+        </td><td class="post-list">
       {% endif %}
       <a href="{{ site.baseurl }}{{ post.url }}">{{ day }}</a>
     {% endfor %}
