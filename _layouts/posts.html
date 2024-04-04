@@ -20,7 +20,7 @@ layout: default
 
   <h1 class="secondary-page-title">Posts by Date</h1>
 
-  <table><tbody><tr><td>
+  <table style="margin-left: -10px; margin-right: -10px"><tbody><tr><td>
     {% assign posts = site.categories[page.cat] | sort: "date" %}
     {% for post in posts %}
       {% assign year = post.date | date: "%y" %}

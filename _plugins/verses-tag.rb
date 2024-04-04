@@ -5,7 +5,7 @@ module Jekyll
     end
   end
 
-  class NoWrapVersesTag < Liquid::Tag
+  class ScaledVersesTag < Liquid::Tag
     def initialize(tag_name, text, tokens)
       super
       @text = text
@@ -13,7 +13,7 @@ module Jekyll
 
     def render(context)
       size = @text.strip
-      "<div class=\"verses verses-no-wrap\" style=\"font-size: #{size}%;\"><table><tbody><tr>"
+      "<div class=\"verses verses-scaled\" style=\"font-size: #{size}%;\"><table><tbody><tr>"
     end
   end
 
@@ -78,7 +78,7 @@ module Jekyll
       book = input.scan(/^([A-Za-z]+(:? +[A-Za-z]+)*)/)[0][0]
       chapter = nil
       str = ""
-      input.scan(/([;,] |-)?((?:([1-9][0-9a-z]*):)?([1-9][0-9a-z]*))/).each_with_index { |m, i|
+      input.scan(/([;,] ?|-)?((?:([1-9][0-9a-z]*):)?([1-9][0-9a-z]*))/).each_with_index { |m, i|
         if m[2]
           chapter = m[2]
         end
@@ -130,7 +130,7 @@ module Jekyll
 end
 
 Liquid::Template.register_tag('verses', Jekyll::VersesTag)
-Liquid::Template.register_tag('nowrapverses', Jekyll::NoWrapVersesTag)
+Liquid::Template.register_tag('scaledverses', Jekyll::ScaledVersesTag)
 Liquid::Template.register_tag('vhe', Jekyll::HeVerseTag)
 Liquid::Template.register_tag('vgk', Jekyll::GkVerseTag)
 Liquid::Template.register_tag('vtl', Jekyll::TlVerseTag)
