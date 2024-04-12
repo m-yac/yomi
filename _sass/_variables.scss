@@ -32,9 +32,8 @@ $white: #fff;
 }
 
 @font-face {
-  font-family: 'KeterYG';
-  src: url('{{ site.url }}/../assets/fonts/KeterAramTsova/KeterYG.woff2') format('woff2'),
-       url('{{ site.url }}/../assets/fonts/KeterAramTsova/KeterYG.woff') format('woff');
+  font-family: 'KeterAramTsova';
+  src: url('{{ site.url }}/../assets/fonts/KeterAramTsova/KeterAramTsova.ttf');
 }
 
 // Font stacks
