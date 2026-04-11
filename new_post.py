@@ -42,7 +42,7 @@ if args.chapter > chapters:
 #  Making the Posts
 # ==================
 
-date = datetime(2024, 2, 1)
+date = datetime(2026, 2, 12)
 for book, chapters in nach_books.items():
   if args.book == book:
     date += timedelta(days = args.chapter-1)
@@ -50,7 +50,7 @@ for book, chapters in nach_books.items():
   else:
     date += timedelta(days = chapters)
 
-post_book_dir = Path('nach-2024', args.book.replace(' ', '-'))
+post_book_dir = Path('nach', args.book.replace(' ', '-'))
 post_parent_dir = post_book_dir / '_posts'
 post_file = post_parent_dir / f'{date.strftime('%Y-%m-%d')}-{args.chapter}.md'
 

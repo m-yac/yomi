@@ -11,7 +11,7 @@ layout: default
   {% for post in posts %}
     {% if post.chapter == 1 %}
       </td></tr><tr><td class="htd book-htd">
-        <a href="{{ site.baseurl }}/nach-2024/{{ post.book | replace: ' ', '-' }}">{{ post.book }}</a>
+        <a href="{{ site.baseurl }}/nach/{{ post.book | replace: ' ', '-' }}">{{ post.book }}</a>
       </td><td class="post-list">
     {% endif %}
     <a href="{{ site.baseurl }}{{ post.url }}">{{ post.chapter }}</a>
@@ -22,23 +22,27 @@ layout: default
 
   <table><tbody><tr><td>
     {% assign posts = site.categories[page.cat] | sort: "date" %}
+    {% assign prev_year = "" %}
+    {% assign prev_year_month = "" %}
     {% for post in posts %}
       {% assign year = post.date | date: "%y" %}
       {% assign month = post.date | date: "%b" %}
-      
       {% assign day = post.date | date: "%e" %}
-      {% if day == " 1" %}
+      {% assign year_month = year | append: month %}
+      {% if year_month != prev_year_month %}
         </td></tr><tr>
-        {% if month == "Jan" or month == "Feb" and year == "24" %}
+        {% if year != prev_year %}
           <td class="htd">
-            ’{{ year }}
+            ‘{{ year }}
           </td>
+          {% assign prev_year = year %}
         {% else %}
           <td></td>
         {% endif %}
         <td class="htd">
           {{ month }}
         </td><td class="post-list">
+        {% assign prev_year_month = year_month %}
       {% endif %}
       <a href="{{ site.baseurl }}{{ post.url }}">{{ day }}</a>
     {% endfor %}
