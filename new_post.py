@@ -6,6 +6,8 @@ from pathlib import Path
 import subprocess
 import platform
 
+from sefaria import build_verses_block, fetch_verses
+
 
 nach_books = OrderedDict([
   ('Joshua', 24), ('Judges', 21), ('I Samuel', 31), ('II Samuel', 24), ('I Kings', 22), ('II Kings', 25), ('Isaiah', 66), ('Jeremiah', 52), ('Ezekiel', 48), ('Hosea', 14), ('Joel', 4), ('Amos', 9), ('Obadiah', 1), ('Jonah', 4), ('Micah', 7), ('Nahum', 3), ('Habakkuk', 3), ('Zephaniah', 3), ('Haggai', 2), ('Zechariah', 14), ('Malachi', 3),
@@ -81,12 +83,20 @@ with post_file.open('w') as f:
     lines.append(f'verse: {args.verse}')
   lines.append(f'---')
   if args.verse:
+    ref = f'{args.book} {args.chapter}:{args.verse}'
     lines.append(f'')
-    lines.append(f'{{% verses %}}')
-    lines.append(f'{{% vhe  %}}')
-    lines.append(f'{{% vtl  %}}')
-    lines.append(f'{{% vtr  %}}')
-    lines.append(f'{{% endverses {args.book} {args.chapter}:{args.verse} %}}')
+    print(f"Fetching {ref!r} from Sefaria...", end=' ', flush=True)
+    try:
+      he, en = fetch_verses(ref)
+      lines.append(build_verses_block(ref, he, en))
+      print("ok")
+    except Exception as exc:
+      print(f"FAILED ({exc}) — inserting empty block")
+      lines.append(f'{{% verses %}}')
+      lines.append(f'{{% vhe  %}}')
+      lines.append(f'{{% vtl  %}}')
+      lines.append(f'{{% vtr  %}}')
+      lines.append(f'{{% endverses {ref} %}}')
   lines.append(f'\n\n')
   f.write('\n'.join(lines))
 
