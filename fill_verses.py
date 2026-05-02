@@ -21,7 +21,7 @@ from pathlib import Path
 from sefaria import build_verses_block, fetch_verses
 
 
-ADDVERSES_RE = __import__('re').compile(r'\{%\s*add_verses\s+(.+?)\s*%\}')
+ADDVERSES_RE = __import__('re').compile(r'\{%\s*addverses\s+(.+?)\s*%\}')
 
 
 def process_text(text: str) -> str:
@@ -69,7 +69,7 @@ def main():
     args = parser.parse_args()
 
     if args.all:
-        files = sorted(Path('nach').rglob('_posts/*.md'))
+        files = sorted(Path('nach').rglob('*/_posts/*.md'))
     elif args.files:
         files = args.files
     else:

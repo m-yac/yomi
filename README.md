@@ -5,7 +5,7 @@ A daily blog of my thoughts as I study [Nach Yomi](https://outorah.org/p/183910/
 
 To preview the site locally at `http://localhost:4000/yomi/`, run:
 ```sh
-bundle exec jekyll serve --livereload --future # preview at 
+bundle exec jekyll serve --livereload --future
 ```
 
 ## Adding a New Post
