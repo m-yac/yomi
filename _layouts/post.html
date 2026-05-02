@@ -21,4 +21,19 @@ layout: default
     </a>
     <span class="date"> {{ page.date | date: "%B %e, %Y" }}</span>
   </div>
+
+  <div class="post-nav">
+    {% if page.previous %}
+      <a class="post-nav-prev" href="{{ site.baseurl }}{{ page.previous.url }}">
+        ❮ Previous ({{ page.previous.book }} {{ page.previous.chapter }})
+      </a>
+    {% else %}
+      <span></span>
+    {% endif %}
+    {% if page.next %}
+      <a class="post-nav-next" href="{{ site.baseurl }}{{ page.next.url }}">
+        Next ({{ page.next.book }} {{ page.next.chapter }}) ❯
+      </a>
+    {% endif %}
+    </div>
 </article>

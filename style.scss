@@ -435,6 +435,26 @@ nav {
     // text-transform: uppercase;
     // font-size: 15px;
   }
+
+  .post-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    margin-top: 32px;
+    width: 100%;
+    font-style: italic;
+
+    .post-nav-prev {
+      margin-left: 0;
+      text-align: left;
+    }
+
+    .post-nav-next {
+      margin-left: auto;
+      text-align: right;
+    }
+  }
 }
 
 .wrapper-footer {
